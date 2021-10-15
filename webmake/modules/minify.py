@@ -14,11 +14,12 @@ def minify_js(input_files, output_file, release=False):
     if output_file:
         utils.ensure_path_exists(os.path.dirname(output_file))
 
-    try:
-        annotate_angular_injections(output_file, output_file)
-    except:
-        # utils.ensure_deleted(output_file)
-        raise
+    if annotate_angular:
+        try:
+            annotate_angular_injections(output_file, output_file)
+        except:
+            # utils.ensure_deleted(output_file)
+            raise
         
     cmdline = [
         utils.get_node_bin_path('uglify-es', 'bin', 'uglifyjs'),
