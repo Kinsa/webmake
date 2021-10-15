@@ -67,6 +67,7 @@ def minify_js(input_files, output_file, annotate_angular=False):
     without minifying.
     """
     from .modules import minify, utils
+    from functools import partial
 
     if not isinstance(input_files, (list, tuple)):
         raise RuntimeError('JS minifier takes a list of input files.')
