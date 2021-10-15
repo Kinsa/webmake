@@ -2,7 +2,7 @@ import os
 from . import utils, concat
 
 
-def minify_js(input_files, output_file, release=False):
+def minify_js(input_files, output_file, release=False, annotate_angular=False):
     assert isinstance(input_files, (list, tuple))
 
     concat.concatenate_input_files(input_files, output_file, release=release)
@@ -20,7 +20,7 @@ def minify_js(input_files, output_file, release=False):
         except:
             # utils.ensure_deleted(output_file)
             raise
-        
+
     cmdline = [
         utils.get_node_bin_path('uglify-es', 'bin', 'uglifyjs'),
         '--compress',
