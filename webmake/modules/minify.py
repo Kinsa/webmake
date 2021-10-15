@@ -39,7 +39,7 @@ def minify_js(input_files, output_file, release=False, annotate_angular=False):
 
 def annotate_angular_injections(input_file, output_file):
     cmdline = [
-        utils.get_node_bin_dir('ng-annotate'),
+        utils.get_node_bin_path('ng-annotate'),
         '--add',
         '-o',
         output_file,
